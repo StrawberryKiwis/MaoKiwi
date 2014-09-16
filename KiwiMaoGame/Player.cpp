@@ -1,5 +1,6 @@
 #include "player.h"
 #include <iostream>
+//Hola!
 using std::cout;
 
 int Player::getHandSize()
