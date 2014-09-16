@@ -13,9 +13,6 @@ class Player
 {
 public:
 	int getHandSize();
-	void setID(int i);
-	int getID();
-	void setName(string n);
 	string getName();
 	Card playCard();
 	void drawCard();
