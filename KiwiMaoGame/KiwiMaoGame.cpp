@@ -2,10 +2,13 @@
 //
 
 #include "stdafx.h"
+#include <iostream>
+using std::cout;
 
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
-	return 0;
+    cout << "Hello World\n";
+    return 0;
 }
 
