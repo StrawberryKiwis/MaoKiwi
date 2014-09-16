@@ -1,40 +1,51 @@
 #include "player.h"
 #include <iostream>
-//Hola!
 using std::cout;
 
+// Precondition: Player must exist.
+// Postcondition: Returns the size vector of the hand. Returns -1 if hand is undefined.
 int Player::getHandSize()
 {
 	return hand.size();
 }
 
-void Player::setID(int i)
-{
-	ID = i;
-	return;
-}
+/* DEPRICATED */
+// void Player::setID(int i)
+// {
+// 	ID = i;
+// 	return;
+// }
 
-int Player::getID()
-{
-	return ID;
-}
+/* DEPRICATED */
+// int Player::getID()
+// {
+// 	return ID;
+// }
 
-void Player::setName(string n)
-{
-	name = n;
-	return;
-}
+/* DEPRICATED */
+// void Player::setName(string n)
+// {
+// 	name = n;
+// 	return;
+// }
 
+// Precondition: Must access the name variable of the player at the current index.
+// Postcondition: Returns a string of the player's name.
 string Player::getName()
 {
 	return name;
 }
 
+// Precondition:
+// Postcondition: Returns the card played
 Card Player::playCard()
 {
 	Card ballon;
 	return ballon;
 }
+
+// Precondition:
+// Postcondition: A card from the deck is added to the player's hand. 
 void Player::drawCard()
 {
 	return;
