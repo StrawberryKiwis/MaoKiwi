@@ -43,7 +43,7 @@ void GameMao::shuffle()
 		discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
 	}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
 	discard.push_back(holdCard);//Adds the copied card to the discard pile
-	cout << "The deck has been shuffled." << endl;//Test cout? lol
+
 	return;
 }
 
