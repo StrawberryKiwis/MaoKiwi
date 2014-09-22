@@ -23,18 +23,18 @@ public:
 
 	// Precondition: Must access the name variable of the player at the current index.
 	// Postcondition: Returns a string of the player's name.
-	string getName(vector<int> player, int playerNum);
+	string getName();
 
 	// Precondition:
 	// Postcondition: Returns the card played
-	Card playCard(int cardIndex);
+	Card playCard();
 
 	// Precondition:
 	// Postcondition: A card from the deck is added to the player's hand. 
 	void drawCard(Card addCard);
 
 private:
-	int ID, HandSize;
+	int cardIndex, HandSize;
 	vector<Card> hand;
 	string name;
 };
