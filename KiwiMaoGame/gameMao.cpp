@@ -34,7 +34,15 @@ bool GameMao::checkLegalMove(Card x)
 // Postcondition: If refills the deck.
 void GameMao::shuffle()
 {
-	cout << "The deck has been shuffled." << endl;
+	Card holdCard = lastCard();//Copies the last card from the discard vector
+	discard.pop_back(discard.size()-1);//Removes the last card from vector
+	do
+	{
+		draw.push_back(draw(rand() % discard.size() = int i)//Selects a random card from the discard vector and copies it into the draw vector
+		discard.erase(i);//Removes the added card from teh discard vector
+	}while(discard.size > 0)//Runs as long as there are cards in the discard vector
+	discard(discard.size()-1) = holdCard;//Adds the copied card to the discard pile
+	cout << "The deck has been shuffled." << endl;//Test cout? lol
 	return;
 }
 
@@ -43,6 +51,25 @@ void GameMao::shuffle()
 //places a card in the discard and runs the card's function (unless it is a two)
 void GameMao::deal()
 {
+	for(suit = 0; suit <= 3; suite++) //Controls the suit being created
+	{
+		for(faceValue = 0; faceValue <=12; faceValue++) //Controls the value of the card being created
+		{
+			discard.push_back(Card(suit, faceValue)) //Adds a card to the vector discard
+		}
+	}
+	shuffle(discard);//Shuffles the discard pile into the draw pile
+
+	for(int playerNum = 0; playerNum <= players.size; playerNum++)//Controls which player is being dealt cards
+	{
+		for(int handNum = 0; handNum <= 7; handNum++)//Runs 7 times to fill a player's hand
+		{
+			players(playernum).drawcard(deck(deck.size() - 1));//Adds a card to the player's hand
+			deck.pop_back();//Destroys the last card in the deck vector
+		}
+	}
+
+	discard.push_back(lastCard());//Adds a card to the discard pile 
 	return;
 }
 
@@ -169,7 +196,6 @@ void GameMao::playerPlay(Player& y)
 	return;
 }
 
-//
 vector<Player>& GameMao::getPlayerVec()
 {
 	return players;
