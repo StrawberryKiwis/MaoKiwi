@@ -34,7 +34,7 @@ public:
 	void drawCard(Card addCard);
 
 private:
-	int ID, cardIndex, HandSize;
+	int cardIndex, HandSize;
 	vector<Card> hand;
 	string name;
 };
