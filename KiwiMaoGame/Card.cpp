@@ -13,8 +13,8 @@ string Card::suitName (Suit s) {
 string Card::valueName (Value v) {
 	switch(v) {
 	case ace: return "Ace";
-	case deuce: return "Deuce";
-	case trey: return "Trey";
+	case deuce: return "Two";
+	case trey: return "Three";
 	case four: return "Four";
 	case five: return "Five";
 	case six:  return "Six";

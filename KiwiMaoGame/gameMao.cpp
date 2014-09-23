@@ -40,7 +40,6 @@ void GameMao::shuffle()
 		int i = rand() % discard.size();
 		holdCard = discard[i];//Selects a random card from the discard vector to be the first card
 		discard.erase(discard.begin() + i);//Removes the card that holdCard copies from the discard vector
-		deck.push_back(holdCard);//Adds the copied card to the discard pile
 	}
 	else
 	{
@@ -59,6 +58,7 @@ void GameMao::shuffle()
 			discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
 		}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
 	}
+
 	discard.push_back(holdCard);//Adds the copied card to the discard pile
 	return;
 }
@@ -281,6 +281,7 @@ void GameMao::changeTurn()
 
 void GameMao::cardsInDeck()
 {
+	cout << "There are " << discard.size() << " cards in the discard." << endl;
 	cout << "There are " << deck.size() << " cards in the deck." << endl << endl;
 	return;
 }

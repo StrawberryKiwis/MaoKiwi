@@ -8,16 +8,16 @@ using namespace std;
 
 int Player::getHandSize() {
 
-		//Seem pontless because hand.size() will return as 0 if it is empty
-		if(hand.empty()){
-			HandSize = 0;
-		} else {
-			HandSize = hand.size();
-		}
-		//It's displayed when you pick a card, seems unnecessary
-		//cout<< "Your handsize is " << HandSize;
-		return HandSize;
+	//Seem pontless because hand.size() will return as 0 if it is empty
+	if(hand.empty()){
+		HandSize = 0;
+	} else {
+		HandSize = hand.size();
 	}
+	//It's displayed when you pick a card, seems unnecessary
+	//cout<< "Your handsize is " << HandSize;
+	return HandSize;
+}
 
 // Precondition: Must access the name variable of the player at the current index.
 // Postcondition: Returns a string of the player's name.
@@ -32,19 +32,20 @@ Card Player::playCard(){
 	cardIndex = hand.size();
 
 	for(int i = 0; i < cardIndex; i++){
-		cout << i + 1 << " " << hand[i].name() << endl;
+		cout << i + 1 << ". " << hand[i].name() << endl;
 	}
 	bool check = false;
 	while(check == false){
-	cin >> cardIndex;
-	cardIndex--;
-	if(cardIndex > signed(hand.size()-1) || cardIndex < 0){
-		check = false;
-		cout << "Please put in a correct value between 1 and " << hand.size() << endl;
-	} else {
-		check = true;
+		cout << "Input: ";
+		cin >> cardIndex;
+		cardIndex--;
+		if(cardIndex > signed(hand.size()-1) || cardIndex < 0){
+			check = false;
+			cout << "Please put in a correct value between 1 and " << hand.size() << endl;
+		} else {
+			check = true;
+		}
 	}
-}
 	return hand[cardIndex]; //(A variable needs to be passed to this function so that it gives JUST the last card and not the whole hand)
 }
 

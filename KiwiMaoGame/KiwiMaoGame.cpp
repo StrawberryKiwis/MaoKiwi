@@ -16,7 +16,7 @@ const int MAX_PLAYERS = 6;
 
 int main()
 {
-
+	cout << "Welcome to Mao: Kiwi Style!" << endl;
 	//Initializes amount of players for the game
 	int numPlayer = 0;
 	bool validInput;
