@@ -34,17 +34,18 @@ bool GameMao::checkLegalMove(Card x)
 // Postcondition: If refills the deck.
 void GameMao::shuffle()
 {
+	Card holdCard;
 	if(discard.size() == 52)//Runs if it's the first time shuffle is being called
-	{int i = rand() % discard.size()
-
-		Card holdCard = discard[i];//Selects a random card from the discard vector to be the first card
+	{
+		int i = rand() % discard.size();
+		holdCard = discard[i];//Selects a random card from the discard vector to be the first card
 		discard.erase(discard.begin() + i);//Removes the card that holdCard copies from the discard vector
 		deck.push_back(holdCard);//Adds the copied card to the discard pile
 	}
 	else
 	{
-	Card holdCard = lastCard();//Copies the last card from the discard vector
-	discard.pop_back();//Removes the last card from vector
+		holdCard = lastCard();//Copies the last card from the discard vector
+		discard.pop_back();//Removes the last card from vector
 	}
 	
 	if(discard.size() != 0)
