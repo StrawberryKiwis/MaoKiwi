@@ -1,0 +1,9 @@
+(a) We met together for about 8.5 hours over 5 meetings.  
+Between the four of us we have 23 work hours on the code.
+
+(b) Not really, two of our team members have the experience of Intro to Comp Sci with
+Professor Al Moakar.  The graphical spider solitaire game prepared us for creating the rules
+and logic related to creating the Mao card game.
+
+(c) Yes, we enjoyed working together.  All of the team members put forth effort to come
+to our meetings and code the parts that they picked/were assigned.
