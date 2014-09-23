@@ -19,13 +19,20 @@ int main()
 
 	//Initializes amount of players for the game
 	int numPlayer = 0;
+	bool validInput;
 	while(numPlayer < MIN_PLAYERS || numPlayer > MAX_PLAYERS)
 	{
-
+		do{
 			cout << "How many players?" << endl;
-			cin >> numPlayer;
+			validInput = cin >> numPlayer;
+			if(!validInput)
+			{  
+			  cin.clear();
+			  while( cin.get() != '\n' );
+			}
 
 			cout << endl;
+		}while(!validInput);
 
 		if (numPlayer < MIN_PLAYERS)
 		{
