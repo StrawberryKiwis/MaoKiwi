@@ -1,8 +1,8 @@
 #include "GameMao.h"
 #include <iostream>
+#include <windows.h>
 using std::cout;
 using std::endl;
-
 
 
 // Precondition: Function must be passed a card.
@@ -216,7 +216,9 @@ void GameMao::playerPlay(Player& y)
 		}
 		cout << endl;
 	}
-
+	// Pause 1.6 seconds then clear the screen.
+	Sleep(1600);
+	system("cmd /c cls");
 	cout << y.getName() << " has " << y.getHandSize() << " cards now." << endl << endl;
 	return;
 }
