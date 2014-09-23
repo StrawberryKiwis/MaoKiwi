@@ -17,6 +17,8 @@ using std::vector;
 
 class Player {
 public:
+	Player(string name = "Ben") : name(name) {}
+
 	// Precondition: Player must exist.
 	// Postcondition: Returns the size vector of the hand. Returns -1 if hand is undefined.
 	int getHandSize();
