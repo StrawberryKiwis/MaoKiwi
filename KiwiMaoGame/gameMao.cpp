@@ -218,7 +218,7 @@ void GameMao::playerPlay(Player& y)
 			}
 			else
 			{
-				cout << "take a card";
+				cout << "take a card.";
 				topCard = deck[deck.size()-1];
 				y.drawCard(topCard);
 				deck.pop_back();
