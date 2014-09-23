@@ -40,7 +40,8 @@ void GameMao::shuffle()
 		int i = rand() % discard.size();
 		holdCard = discard[i];//Selects a random card from the discard vector to be the first card
 		discard.erase(discard.begin() + i);//Removes the card that holdCard copies from the discard vector
-		cardFunction(holdCard);
+		if(holdCard.getValue() != deuce)
+			cardFunction(holdCard);
 	}
 	else
 	{
