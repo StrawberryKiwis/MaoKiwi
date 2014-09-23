@@ -7,12 +7,15 @@ using namespace std;
 // Postcondition: Returns the size vector of the hand. 
 
 int Player::getHandSize() {
+
+		//Seem pontless because hand.size() will return as 0 if it is empty
 		if(hand.empty()){
 			HandSize = 0;
 		} else {
 			HandSize = hand.size();
 		}
-		cout<< "Your handsize is " << HandSize;
+		//It's displayed when you pick a card, seems unnecessary
+		//cout<< "Your handsize is " << HandSize;
 		return HandSize;
 	}
 
@@ -25,7 +28,7 @@ string Player::getName(){
 // Precondition:
 // Postcondition: Returns the card played
 Card Player::playCard(){
-	cout << "Your hand includes " << endl;
+	//cout << "Your hand includes " << endl;
 	cardIndex = hand.size();
 
 	for(int i = 0; i < cardIndex; i++){
@@ -35,9 +38,9 @@ Card Player::playCard(){
 	while(check == false){
 	cin >> cardIndex;
 	cardIndex--;
-	if(cardIndex > hand.size()){
+	if(cardIndex > signed(hand.size()-1) || cardIndex < 0){
 		check = false;
-		cout << "Please put in a correct value between 1 and " << hand.size()-1 ;
+		cout << "Please put in a correct value between 1 and " << hand.size() << endl;
 	} else {
 		check = true;
 	}
@@ -49,4 +52,9 @@ Card Player::playCard(){
 // Postcondition: A card from the deck is added to the player's hand. 
 void Player::drawCard(Card addCard){
 	Player::hand.push_back(addCard);
+}
+
+vector<Card>& Player::getHand()
+{
+	return hand;
 }

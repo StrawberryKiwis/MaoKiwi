@@ -34,7 +34,7 @@ public:
 	// Precondition:
 	// Postcondition: A card from the deck is added to the player's hand. 
 	void drawCard(Card addCard);
-
+	vector<Card>& getHand();
 private:
 	int cardIndex, HandSize;
 	vector<Card> hand;
