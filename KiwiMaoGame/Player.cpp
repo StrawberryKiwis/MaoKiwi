@@ -36,9 +36,18 @@ Card Player::playCard(){
 	}
 	bool check = false;
 	while(check == false){
-		cout << "Input: ";
-		cin >> cardIndex;
-		cardIndex--;
+		bool validInput;
+		do{
+			cout << "Input: ";
+			validInput = cin >> cardIndex;
+			cardIndex--;
+			if(!validInput)
+			{  
+				cin.clear();
+				while( cin.get() != '\n' );
+			}
+		}while(!validInput);
+
 		if(cardIndex > signed(hand.size()-1) || cardIndex < 0){
 			check = false;
 			cout << "Please put in a correct value between 1 and " << hand.size() << endl;
