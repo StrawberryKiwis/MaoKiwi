@@ -38,7 +38,8 @@ void GameMao::shuffle()
 	discard.pop_back();//Removes the last card from vector
 	do
 	{
-		Card throwCard = discard[int i = rand() % discard.size()];//Holds a random card from the discard vector
+		int i = rand() % discard.size();
+		Card throwCard = discard[i];//Holds a random card from the discard vector
 		deck.push_back(throwCard);//Selects a random card from the discard vector and copies it into the draw vector
 		discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
 	}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
