@@ -1,6 +1,7 @@
 // KiwiMaoGame.cpp : Defines the entry point for the console application.
 //
 #include <iostream>
+#include <windows.h>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -36,7 +37,26 @@ int main()
 
 		if (numPlayer < MIN_PLAYERS)
 		{
-			cout << "That number is invalid" << endl;
+			//cout << "That number is invalid" << endl;
+			cout << "No friends? You must be homeschooled. LOL" << endl;
+			Sleep(1600);
+			cout << "Clap...";
+			Sleep(1000);
+			cout << "Clap...";
+			Sleep(1000);
+			cout << "Clap..." << endl;
+			Sleep(1000);
+			cout << "BTW: We're all homeschooled." << endl;
+			Sleep(1000);
+		}
+		else if (numPlayer == 52)
+		{
+			cout << "Congratulations! I've delt every player a single card and now we don't have anything left to start with." << endl;
+			cout << "The only forseeable option is playing Rock Paper Scissors to determine who gives up a card..." << endl;
+		}
+		else if (numPlayer > 53)
+		{
+			cout << "Really?! How do you expect me to deal 52 cards across " << numPlayer << " players..?" << endl;
 		}
 		else if (numPlayer > MAX_PLAYERS)
 		{
