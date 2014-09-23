@@ -27,3 +27,4 @@ string Card::valueName (Value v) {
 	case king: return "King";
 	default: throw std::out_of_range("Face value out of range");
 	}
+}

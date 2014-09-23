@@ -36,15 +36,20 @@ void GameMao::shuffle()
 {
 	Card holdCard = lastCard();//Copies the last card from the discard vector
 	discard.pop_back();//Removes the last card from vector
-	do
-	{
-		int i = rand() % discard.size();
-		Card throwCard = discard[i];//Holds a random card from the discard vector
-		deck.push_back(throwCard);//Selects a random card from the discard vector and copies it into the draw vector
-		discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
-	}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
-	discard.push_back(holdCard);//Adds the copied card to the discard pile
 
+	
+	if(discard.size() != 0)
+	{
+		do
+		{
+			//This throws a "division by zero" if size is zero. Added if statement above
+			int i = rand() % discard.size();
+			Card throwCard = discard[i];//Holds a random card from the discard vector
+			deck.push_back(throwCard);//Selects a random card from the discard vector and copies it into the deck vector
+			discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
+		}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
+	}
+	discard.push_back(holdCard);//Adds the copied card to the discard pile
 	return;
 }
 
@@ -53,6 +58,9 @@ void GameMao::shuffle()
 //places a card in the discard and runs the card's function (unless it is a two)
 void GameMao::deal()
 {
+	//Added srand here because deal is only used once.
+	srand(time(0));
+
 	for(int suit = 0; suit <= 3; suit++) //Controls the suit being created
 	{
 		for(int faceValue = 0; faceValue <=12; faceValue++) //Controls the value of the card being created
@@ -60,9 +68,10 @@ void GameMao::deal()
 			discard.push_back(Card(Value(faceValue), Suit(suit))); //Adds a card to the vector discard
 		}
 	}
+
 	shuffle();//Shuffles the discard pile into the draw pile
 
-	for(int playerNum = 0; playerNum <= players.size; playerNum++)//Controls which player is being dealt cards
+	for(unsigned int playerNum = 0; playerNum < players.size(); playerNum++)//Controls which player is being dealt cards
 	{
 		for(int handNum = 0; handNum <= 7; handNum++)//Runs 7 times to fill a player's hand
 		{
@@ -71,7 +80,9 @@ void GameMao::deal()
 		}
 	}
 
-	discard.push_back(lastCard());//Adds a card to the discard pile 
+	//This line is pointless because last card gives the last card in the discard pile...
+	//Actually it adds two of the same card on the discard pile!
+	//discard.push_back(lastCard());//Adds a card to the discard pile 
 	return;
 }
 
@@ -174,9 +185,14 @@ void GameMao::playerPlay(Player& y)
 			cout << "take " << drawTwoCount * 2 << " cards.";
 			for(int i = 0; i < drawTwoCount * 2; i++)
 			{
-				topCard = deck[deck.size()-1];
 				if(deck.size() == 0)
 					shuffle();
+				if(deck.size() == 0)
+				{
+					cout << endl << "Looks like there are no cards in the deck. You lucked out this time!";
+					break;
+				}
+				topCard = deck[deck.size()-1];
 				y.drawCard(topCard);
 				deck.pop_back();
 			}
@@ -186,10 +202,17 @@ void GameMao::playerPlay(Player& y)
 		{
 			if(deck.size() == 0)
 				shuffle();
-			cout << "take a card";
-			topCard = deck[deck.size()-1];
-			y.drawCard(topCard);
-			deck.pop_back();
+			if(deck.size() == 0)
+			{
+				cout << "good thing there's no more cards to draw..." << endl;
+			}
+			else
+			{
+				cout << "take a card";
+				topCard = deck[deck.size()-1];
+				y.drawCard(topCard);
+				deck.pop_back();
+			}
 		}
 		cout << endl;
 	}
