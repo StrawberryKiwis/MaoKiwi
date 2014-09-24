@@ -34,10 +34,11 @@ bool GameMao::checkLegalMove(Card x)
 // Postcondition: If refills the deck.
 void GameMao::shuffle()
 {
-	Card holdCard;
+	Card holdCard; //Card to be held to place on top of the discard pile
+
 	if(discard.size() == 52)//Runs if it's the first time shuffle is being called
 	{
-		int i = rand() % discard.size();
+		int i = rand() % discard.size();//Random discard index number
 		holdCard = discard[i];//Selects a random card from the discard vector to be the first card
 		discard.erase(discard.begin() + i);//Removes the card that holdCard copies from the discard vector
 		if(holdCard.getValue() != deuce)
@@ -48,17 +49,13 @@ void GameMao::shuffle()
 		holdCard = lastCard();//Copies the last card from the discard vector
 		discard.pop_back();//Removes the last card from vector
 	}
-	
-	if(discard.size() != 0)
+
+	while(discard.size() > 0)//Runs as long as there are cards in the discard vector
 	{
-		do
-		{
-			//This throws a "division by zero" if size is zero. Added if statement above
-			int i = rand() % discard.size();
-			Card throwCard = discard[i];//Holds a random card from the discard vector
-			deck.push_back(throwCard);//Selects a random card from the discard vector and copies it into the deck vector
-			discard.erase(discard.begin() + i);//Removes the added card from teh discard vector
-		}while(discard.size() > 0);//Runs as long as there are cards in the discard vector
+		int i = rand() % discard.size();
+		Card throwCard = discard[i];//Holds a random card from the discard vector
+		deck.push_back(throwCard);//Selects a random card from the discard vector and copies it into the deck vector
+		discard.erase(discard.begin() + i);//Removes the added card from the discard vector
 	}
 
 	discard.push_back(holdCard);//Adds the copied card to the discard pile
@@ -71,7 +68,7 @@ void GameMao::shuffle()
 void GameMao::deal()
 {
 	//Added srand here because deal is only used once.
-	srand(time(0));
+	srand(time(0));//Why is srand in deal? I don't see it being used.
 
 	for(int suit = 0; suit <= 3; suit++) //Controls the suit being created
 	{
@@ -91,10 +88,6 @@ void GameMao::deal()
 			deck.pop_back();//Destroys the last card in the deck vector
 		}
 	}
-
-	//This line is pointless because last card gives the last card in the discard pile...
-	//Actually it adds two of the same card on the discard pile!
-	//discard.push_back(lastCard());//Adds a card to the discard pile 
 	return;
 }
 
@@ -278,13 +271,6 @@ void GameMao::changeTurn()
 			if (unsigned(playerTurn) > players.size()-1)
 				playerTurn = 0;
 		}
-	return;
-}
-
-void GameMao::cardsInDeck()
-{
-	cout << "There are " << discard.size() << " cards in the discard." << endl;
-	cout << "There are " << deck.size() << " cards in the deck." << endl << endl;
 	return;
 }
 

@@ -43,8 +43,6 @@ public:
 	//Changes whos turn it is
 	void changeTurn();
 	
-	//Prints out how many cards are still in the deck
-	void cardsInDeck();
 	void noCardsInHand(Player& y);
 private:
 	int drawTwoCount;
