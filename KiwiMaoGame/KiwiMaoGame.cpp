@@ -122,8 +122,6 @@ int main()
 			kiwiGame.playerPlay(kiwiGame.getPlayerVec()[turn]);
 		}
 		
-		//Prints cards in the deck and goes to the next turn
-		kiwiGame.cardsInDeck();
 		kiwiGame.changeTurn();
 		
 		//Prints what card is currently on the discard pile

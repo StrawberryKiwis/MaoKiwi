@@ -44,10 +44,10 @@
     <ClCompile Include="Player.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameMao.cpp">
+    <ClCompile Include="Card.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Card.cpp">
+    <ClCompile Include="gameMao.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
