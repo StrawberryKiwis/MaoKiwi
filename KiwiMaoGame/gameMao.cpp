@@ -74,7 +74,7 @@ void GameMao::shuffle()
 void GameMao::deal()
 {
 	//Added srand here because deal is only used once.
-	srand(time(0));//Why is srand in deal? I don't see it being used.
+	srand(time(0));
 
 	for(int suit = 0; suit <= 3; suit++) //Controls the suit being created
 	{
