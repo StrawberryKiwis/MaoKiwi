@@ -17,6 +17,12 @@ bool GameMao::checkLegalMove(Card x)
 	if(topCard.getValue() != jack && x.getValue() == jack)
 		return true;
 
+	if(topCard.getValue() == queen && x.getValue()%2 == 0)
+		return false;
+
+	if(topCard.getValue() == king && x.getValue()%2 == 1)
+		return false;
+
 	if(topCard.getValue() == jack && x.getValue() != jack && drawTwoCount == 0)
 		return true;
 
@@ -138,12 +144,7 @@ void GameMao::cardFunction(Card x)
 			reverse = true;
 		return;
 	case jack:
-		if (drawTwoCount == 0)
-		{
-			//Wild function
-			//As of right now, the next player gets to play any card.
-		}
-		else
+		if (drawTwoCount != 0)
 		{
 			drawTwoCount++;
 		}

@@ -68,6 +68,7 @@ int main()
 	//Initializing a game and adding players
 	GameMao kiwiGame;
 	string enterName;
+	cin.ignore();
 	for(int i = 0; i < numPlayer; i++)
 	{
 		//Checks for double name...
@@ -76,7 +77,7 @@ int main()
 		{
 			doubleName = false;
 			cout << "Enter the name of Player " << i+1 << ": ";
-			cin >> enterName;
+			getline(cin, enterName);
 
 			//This loop prevents the user from inputting the same name twice (different CAPS is okay though)
 			if(kiwiGame.getPlayerVec().size() > 0)
